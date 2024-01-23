@@ -9,6 +9,18 @@ import (
 type JDWPClient struct {
 }
 
+type PacketHeader struct {
+	Length int
+	Id     int
+	Flags  byte
+	Code   [2]byte
+}
+
+type JDWPPacket struct {
+	Header PacketHeader
+	Data   []byte
+}
+
 const (
 	JDWP_HANDSHAKE = "JDWP-Handshake"
 )
